@@ -33,7 +33,8 @@ public class luna {
     public static void main(String[] args) {
         initalizeLoggger();
         initializeCountries();
-        Reader.initializeRunwayAndAirports(); // store csv files in memory // maybe find a better way to prevent long time at app openin
+        Reader.initializeAirports(); // store csv files in memory // maybe find a better way to prevent long time at app opening
+        Reader.initializeRunways();
 
         System.out.println("Please, enter country code / name (case-insensitive) :");
         System.out.println("Example : FR | US | CR / France | United States | Costa Rica...");

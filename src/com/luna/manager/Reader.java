@@ -31,7 +31,7 @@ public class Reader {
     private static ArrayList<Airports> airportsLst;
     private static ArrayList<Runways> runwaysLst;
 
-    public static void initializeRunwayAndAirports() {
+    public static void initializeAirports() {
         boolean firstLine = true; // ignore header
 
         CSVReader reader;
@@ -68,6 +68,14 @@ public class Reader {
             System.out.println("Error: " + e.getMessage());
             System.exit(0);
         }
+    }
+
+    public static void initializeRunways() {
+
+        boolean firstLine = true; // ignore header
+
+        CSVReader reader;
+        String[] line;
 
         // runways
         try {
@@ -129,8 +137,9 @@ public class Reader {
         }
     }
 
+
     /*
-	 * 	Write information of country, airports and runways
+     * 	Write information of country, airports and runways
      */
     public static void WriteInConsole(Countries CountryChoose) {
         long start = System.currentTimeMillis();
@@ -183,13 +192,17 @@ public class Reader {
 
             System.out.println("There are " + totalAirports + " Airports and " + totalRunways + " Runways in Country " + CountryChoose.getName() + ".");
             System.out.println("Congratulation, search for Country " + CountryChoose.getName() + " took " + (System.currentTimeMillis() - start) / 1000 + " seconds.");
+
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Reader.class
+                    .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 fis.close();
+
             } catch (IOException ex) {
-                Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Reader.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
